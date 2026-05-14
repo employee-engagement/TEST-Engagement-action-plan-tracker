@@ -100,6 +100,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
   transition:all .18s;font-family:inherit;
 }
 .filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── FLOATING FILTER PANEL ── */
+.floating-filters{
+  position:fixed;left:1.25rem;top:50%;transform:translateY(-50%);
+  z-index:200;
+  background:#fff;border:1px solid var(--border);
+  border-radius:16px;padding:.85rem .75rem;
+  box-shadow:0 8px 28px rgba(0,0,0,0.12);
+  display:flex;flex-direction:column;gap:.4rem;
+  min-width:52px;
+}
+.floating-filters .ff-label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--muted);
+  text-align:center;margin-bottom:.25rem;
+  white-space:nowrap;
+}
+.floating-filters .filter-btn{
+  font-size:11.5px;font-weight:500;padding:6px 12px;
+  border-radius:10px;border:1px solid var(--border);
+  background:#fff;color:var(--muted);cursor:pointer;
+  transition:all .18s;font-family:inherit;
+  text-align:left;white-space:nowrap;
+  width:100%;
+}
+.floating-filters .filter-btn:hover,
+.floating-filters .filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ff-divider{height:1px;background:var(--border);margin:.25rem 0}
 .legend{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-left:auto}
 .legend-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
 .legend-item{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap}
@@ -111,12 +139,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 .section-divider{
   display:flex;align-items:center;gap:1rem;
   margin:2rem 0 1.25rem;
+  position:sticky;top:90px;z-index:90;
 }
 .section-divider-line{flex:1;height:2px;background:var(--border)}
 .section-divider-label{
   font-size:14px;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;white-space:nowrap;
   padding:6px 18px;border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.12);
 }
 .section-enterprise{background:var(--navy);color:#fff}
 .section-site{background:#1a2f4a;color:#fff}
@@ -995,8 +1025,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
 <script>
   function filter(scope, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('active', b.textContent.trim() === btn.textContent.trim());
+    });
     document.querySelectorAll('[data-scope]').forEach(el => {
       const scopes = el.dataset.scope.split(' ');
       let show = false;
@@ -1004,18 +1035,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
         show = true;
       } else if (scope === 'ent') {
         show = scopes.includes('ent') || scopes.includes('short') || scopes.includes('mid') || scopes.includes('long');
-        // hide site section divider and site groups
         if (scopes.includes('nj') || scopes.includes('tx') || scopes.includes('la') || scopes.includes('site')) show = false;
         if (scopes.includes('ent') || scopes.includes('short') || scopes.includes('mid') || scopes.includes('long')) show = true;
         if (el.classList.contains('section-divider') && scopes.includes('nj')) show = false;
       } else if (['short','mid','long'].includes(scope)) {
-        // show matching enterprise groups + enterprise section divider, hide site stuff
         if (scopes.includes(scope)) show = true;
         if (el.dataset.scope === 'short mid long ent' && scopes.includes('short')) show = true;
         if (scopes.includes('nj') || scopes.includes('tx') || scopes.includes('la')) show = false;
         if (el.classList.contains('section-divider') && scopes.includes('nj')) show = false;
       } else {
-        // site filter: show matching site + site section dividers, hide enterprise
         show = scopes.includes(scope);
         if (el.dataset.scope === 'short mid long ent') show = false;
         if (el.classList.contains('section-divider') && scopes.includes('short')) show = false;
