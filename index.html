@@ -100,46 +100,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
   transition:all .18s;font-family:inherit;
 }
 .filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-
-/* ── FLOATING FILTER PANEL ── */
-.floating-filters{
-  position:fixed;left:1.25rem;top:50%;transform:translateY(-50%);
-  z-index:200;
-  background:#fff;border:1px solid var(--border);
-  border-radius:16px;padding:.85rem .75rem;
-  box-shadow:0 8px 28px rgba(0,0,0,0.12);
-  display:flex;flex-direction:column;gap:.4rem;
-  min-width:52px;
-}
-.floating-filters .ff-label{
-  font-size:10px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.1em;color:var(--muted);
-  text-align:center;margin-bottom:.25rem;
-  white-space:nowrap;
-}
-.floating-filters .filter-btn{
-  font-size:11.5px;font-weight:500;padding:6px 12px;
-  border-radius:10px;border:1px solid var(--border);
-  background:#fff;color:var(--muted);cursor:pointer;
-  transition:all .18s;font-family:inherit;
-  text-align:left;white-space:nowrap;
-  width:100%;
-}
-.floating-filters .filter-btn:hover,
-.floating-filters .filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-.ff-divider{height:1px;background:var(--border);margin:.25rem 0}
-.legend{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-left:auto}
 .legend-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
 .legend-item{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap}
 
 /* ── CONTENT ── */
 .content{max-width:860px;margin:0 auto;padding:2rem 2.5rem 4rem}
 
-/* ── SECTION DIVIDERS (Enterprise / Site-Specific) ── */
+/* ── SECTION DIVIDERS ── */
 .section-divider{
   display:flex;align-items:center;gap:1rem;
   margin:2rem 0 1.25rem;
-  position:sticky;top:90px;z-index:90;
+  position:sticky;top:56px;z-index:90;
 }
 .section-divider-line{flex:1;height:2px;background:var(--border)}
 .section-divider-label{
@@ -178,7 +149,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
   font-size:29px;font-weight:800;color:#fff;
   flex-shrink:0;letter-spacing:-1px;
 }
-.group-num{display:none}/* legacy — hidden */
 .group-info{
   flex:1;padding:.85rem 1rem;
   background:#fff;
@@ -246,14 +216,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 .cp-pct{font-size:15px;font-weight:600;color:var(--text)}
 .cp-bar-bg{height:6px;background:var(--slate);border-radius:99px;overflow:hidden}
 .cp-bar-fill{height:6px;border-radius:99px;transition:width 1.2s ease}
-
-/* ── CONCEPTUALIZED BY ── */
-.card-conceptualized{
-  font-size:14px;color:var(--muted);margin-bottom:.75rem;
-  padding:.5rem .75rem;background:var(--slate);border-radius:7px;
-  border-left:3px solid var(--border);
-}
-.card-conceptualized span{font-weight:600;color:var(--text);}
 
 /* ── MILESTONES ── */
 .milestones{margin-top:.6rem}
@@ -351,8 +313,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="section-divider-line"></div>
   </div>
 
+  <!-- ── GROUP 1 ── -->
   <div class="group" data-scope="short ent">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-1">1</div>
       <div class="group-info">
         <div class="group-title">Execution Discipline & Follow-Through Visibility</div>
@@ -363,18 +326,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
         <span class="badge b-short">Short-term · 1–4 mo</span>
       </div>
     </div>
-
-    <!-- INITIATIVE OVERALL PROGRESS — update the width % and number below -->
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:75%;background:#0d9488"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:75%;background:#0d9488"></div></div>
       <span class="ip-pct">75%</span>
     </div>
-
     <div class="cards">
-
       <div class="card">
         <div class="card-top">
           <div class="card-icon" style="background:#e0f2fe">📊</div>
@@ -383,18 +340,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
             <div class="card-desc">The Voice Team will lead this in partnership with HR — launching a shared, accessible dashboard listing every survey-driven commitment, current status, and target completion date, updated monthly and linked in the Monthly Newsletter.</div>
           </div>
         </div>
-        <!-- ACTION PROGRESS — update width % and number -->
         <div class="card-progress">
           <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">100%</span></div>
           <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:100%;background:#0d9488"></div></div>
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">✅ [ Action Plan Created ]</span>
+              <span class="milestone-item">✅ Action Plan Created</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">✅ [ Action Plan Released ]</span>
+              <span class="milestone-item">✅ Action Plan Released</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">✅ [ Tracker Release ]</span>
+              <span class="milestone-item">✅ Tracker Released</span>
             </div>
           </div>
         </div>
@@ -403,7 +359,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <span class="owner-label">Execution Owner: <span class="owner-pill">Voice Team, HR</span></span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-top">
           <div class="card-icon" style="background:#dcfce7">📢</div>
@@ -418,11 +373,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">✅ [ Ideas Discussed ]</span>
+              <span class="milestone-item">✅ Ideas Discussed</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">⏳ [ Ongoing Townhalls ]</span>
+              <span class="milestone-item">⏳ Ongoing Townhalls</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -431,13 +386,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <span class="owner-label">Execution Owner: <span class="owner-pill">HR, Senior Leadership</span></span>
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- ── GROUP 2 ── -->
   <div class="group" data-scope="short ent">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-2">2</div>
       <div class="group-info">
         <div class="group-title">Recognition Consistency & Leadership Accountability</div>
@@ -450,9 +404,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     </div>
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:55%;background:#d97706"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:55%;background:#d97706"></div></div>
       <span class="ip-pct">55%</span>
     </div>
     <div class="cards">
@@ -470,11 +422,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">✅ [ Vetted Platforms ]</span>
+              <span class="milestone-item">✅ Vetted Platforms</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">✅ [ Pilot Run ]</span>
+              <span class="milestone-item">✅ Pilot Run</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">✅ [ Platform and Policy Launced ]</span>
+              <span class="milestone-item">✅ Platform and Policy Launched</span>
             </div>
           </div>
         </div>
@@ -497,11 +449,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">⏳ [ Planning Logistics ]</span>
+              <span class="milestone-item">⏳ Planning Logistics</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -515,7 +467,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
   <!-- ── GROUP 3 ── -->
   <div class="group" data-scope="short ent">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-3">3</div>
       <div class="group-info">
         <div class="group-title">Enterprise Goal & Decision Transparency</div>
@@ -528,9 +480,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     </div>
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:60%;background:#7c3aed"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:60%;background:#7c3aed"></div></div>
       <span class="ip-pct">60%</span>
     </div>
     <div class="cards">
@@ -548,11 +498,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">✅ [ Template Finalized ]</span>
+              <span class="milestone-item">✅ Template Finalized</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">⏳ [ Pilot ]</span>
+              <span class="milestone-item">⏳ Pilot</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -575,11 +525,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">✅ [ Discussed Expectations ]</span>
+              <span class="milestone-item">✅ Discussed Expectations</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">⏳ [ Pilot ]</span>
+              <span class="milestone-item">⏳ Pilot</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -593,7 +543,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
   <!-- ── GROUP 4 ── -->
   <div class="group" data-scope="mid ent">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-4">4</div>
       <div class="group-info">
         <div class="group-title">Structured Leadership Development Pipeline</div>
@@ -606,9 +556,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     </div>
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:25%;background:#0369a1"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:25%;background:#0369a1"></div></div>
       <span class="ip-pct">25%</span>
     </div>
     <div class="cards">
@@ -626,11 +574,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -653,11 +601,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -671,7 +619,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
   <!-- ── GROUP 5 ── -->
   <div class="group" data-scope="long ent">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-5">5</div>
       <div class="group-info">
         <div class="group-title">Enterprise Innovation & Confidence Roadmap</div>
@@ -684,9 +632,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     </div>
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:5%;background:#be185d"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:5%;background:#be185d"></div></div>
       <span class="ip-pct">5%</span>
     </div>
     <div class="cards">
@@ -704,11 +650,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -731,11 +677,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -763,7 +709,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
   <!-- ── GROUP 6 ── -->
   <div class="group" data-scope="nj site">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-6">6</div>
       <div class="group-info">
         <div class="group-title">Leadership Visibility, Innovation & Employee Experience</div>
@@ -776,9 +722,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     </div>
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:10%;background:#0891b2"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:10%;background:#0891b2"></div></div>
       <span class="ip-pct">10%</span>
     </div>
     <div class="cards">
@@ -796,11 +740,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -823,11 +767,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -848,7 +792,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
   <!-- ── GROUP 7 ── -->
   <div class="group" data-scope="tx site">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-7">7</div>
       <div class="group-info">
         <div class="group-title">Leadership Accountability, Performance Clarity & Pay Transparency</div>
@@ -861,13 +805,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     </div>
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:10%;background:#ca8a04"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:10%;background:#ca8a04"></div></div>
       <span class="ip-pct">10%</span>
     </div>
     <div class="cards">
-
       <div class="card">
         <div class="card-top">
           <div class="card-icon" style="background:#fce7f3">📌</div>
@@ -882,11 +823,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -895,7 +836,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <span class="owner-label">Execution Owner: <span class="owner-pill">Corp. HR, Site HR, L&D</span></span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-top">
           <div class="card-icon" style="background:#fce7f3">💲</div>
@@ -910,11 +850,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -923,7 +863,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <span class="owner-label">Execution Owner: <span class="owner-pill">Site HR</span></span>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -936,7 +875,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
   <!-- ── GROUP 8 ── -->
   <div class="group" data-scope="la site">
-        <div class="group-header">
+    <div class="group-header">
       <div class="group-num-block gn-8">8</div>
       <div class="group-info">
         <div class="group-title">Manager Enablement & Accountability Reinforcement</div>
@@ -949,13 +888,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     </div>
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
-      <div class="ip-bar-bg">
-        <div class="ip-bar-fill" style="width:10%;background:#dc2626"></div>
-      </div>
+      <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:10%;background:#dc2626"></div></div>
       <span class="ip-pct">10%</span>
     </div>
     <div class="cards">
-
       <div class="card">
         <div class="card-top">
           <div class="card-icon" style="background:#fce7f3">🏛️</div>
@@ -970,11 +906,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -983,7 +919,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <span class="owner-label">Execution Owner: <span class="owner-pill">Site Leadership, Site HR</span></span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-top">
           <div class="card-icon" style="background:#fce7f3">⚖️</div>
@@ -998,11 +933,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <div class="milestones">
             <div class="milestones-label">Milestones so far</div>
             <div class="milestones-list">
-              <span class="milestone-item">🔲 [ Milestone 1 ]</span>
+              <span class="milestone-item">🔲 Milestone 1</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 2 ]</span>
+              <span class="milestone-item">🔲 Milestone 2</span>
               <span class="milestone-item">·</span>
-              <span class="milestone-item">🔲 [ Milestone 3 ]</span>
+              <span class="milestone-item">🔲 Milestone 3</span>
             </div>
           </div>
         </div>
@@ -1011,10 +946,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
           <span class="owner-label">Execution Owner: <span class="owner-pill">Site Leadership, Site HR</span></span>
         </div>
       </div>
-
     </div>
-
-
   </div>
 
   <div class="page-footer">
@@ -1033,14 +965,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
       let show = false;
       if (scope === 'all') {
         show = true;
-      } else if (scope === 'ent') {
-        show = scopes.includes('ent') || scopes.includes('short') || scopes.includes('mid') || scopes.includes('long');
-        if (scopes.includes('nj') || scopes.includes('tx') || scopes.includes('la') || scopes.includes('site')) show = false;
-        if (scopes.includes('ent') || scopes.includes('short') || scopes.includes('mid') || scopes.includes('long')) show = true;
-        if (el.classList.contains('section-divider') && scopes.includes('nj')) show = false;
       } else if (['short','mid','long'].includes(scope)) {
         if (scopes.includes(scope)) show = true;
-        if (el.dataset.scope === 'short mid long ent' && scopes.includes('short')) show = true;
+        if (el.dataset.scope === 'short mid long ent') show = true;
         if (scopes.includes('nj') || scopes.includes('tx') || scopes.includes('la')) show = false;
         if (el.classList.contains('section-divider') && scopes.includes('nj')) show = false;
       } else {
@@ -1052,7 +979,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     });
   }
 
-  // Animate bars on load
   window.addEventListener('load', () => {
     document.querySelectorAll('.ip-bar-fill, .cp-bar-fill').forEach(bar => {
       const w = bar.style.width;
