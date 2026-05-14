@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Engagement Action Plan — 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f1e35;
+  --navy2:#1a2f4a;
+  --teal:#0d9488;
+  --teal-lt:#e6f7f5;
+  --amber:#d97706;
+  --amber-lt:#fef3c7;
+  --green:#16a34a;
+  --green-lt:#dcfce7;
+  --purple:#7c3aed;
+  --purple-lt:#ede9fe;
+  --pink:#be185d;
+  --pink-lt:#fce7f3;
+  --blue:#0369a1;
+  --blue-lt:#e0f2fe;
+  --slate:#f4f6f9;
+  --border:#e2e8f0;
+  --text:#1e293b;
+  --muted:#64748b;
+  --white:#fff;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);min-height:100vh}
+
+/* ── HERO ── */
+.hero{
+  background:var(--navy);
+  padding:3rem 2.5rem 2.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-80px;right:-100px;
+  width:380px;height:380px;border-radius:50%;
+  background:var(--teal);opacity:0.07;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-60px;left:35%;
+  width:260px;height:260px;border-radius:50%;
+  background:#3b82f6;opacity:0.05;
+}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;
+}
+.hero-title{
+  font-family:'Instrument Serif',serif;
+  font-size:36px;color:#fff;line-height:1.15;margin-bottom:.5rem;
+}
+.hero-sub{font-size:13.5px;color:#94a3b8;margin-bottom:2rem;line-height:1.6}
+.stat-row{display:flex;gap:1rem;flex-wrap:wrap}
+.stat{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px;padding:.75rem 1.25rem;min-width:110px;
+  animation:fadeUp .5s ease both;
+}
+.stat:nth-child(1){animation-delay:.1s}
+.stat:nth-child(2){animation-delay:.2s}
+.stat:nth-child(3){animation-delay:.3s}
+.stat:nth-child(4){animation-delay:.4s}
+.stat-n{font-size:26px;font-weight:600;color:#fff;line-height:1}
+.stat-l{font-size:11px;color:#94a3b8;margin-top:3px}
+
+/* ── CONTROLS ── */
+.controls{
+  background:#fff;border-bottom:1px solid var(--border);
+  padding:.9rem 2.5rem;
+  display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 1px 8px rgba(0,0,0,0.06);
+}
+.filter-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-right:.25rem}
+.filter-btn{
+  font-size:12px;font-weight:500;padding:5px 15px;
+  border-radius:20px;border:1px solid var(--border);
+  background:#fff;color:var(--muted);cursor:pointer;
+  transition:all .18s;font-family:inherit;
+}
+.filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── CONTENT ── */
+.content{max-width:860px;margin:0 auto;padding:2rem 2.5rem 4rem}
+
+/* ── GROUP ── */
+.group{margin-bottom:.5rem;animation:fadeUp .4s ease both}
+.site-divider{
+  display:flex;align-items:center;gap:1rem;
+  margin:1.75rem 0 1rem;
+}
+.site-divider-line{flex:1;height:1px;background:var(--border)}
+.site-divider-label{
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;white-space:nowrap;
+  padding:4px 14px;border-radius:20px;
+}
+.site-nj{background:#e0f2fe;color:#0369a1;border:1px solid #bae6fd}
+.site-tx{background:#fef9c3;color:#854d0e;border:1px solid #fde68a}
+.site-la{background:#fce7f3;color:#be185d;border:1px solid #fbcfe8}
+.group-header{
+  display:flex;align-items:center;gap:.85rem;
+  padding:.75rem 0 .5rem;
+  border-bottom:1px solid var(--border);
+  margin-bottom:.85rem;
+}
+.group-num{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  font-size:13px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.group-info{flex:1}
+.group-title{font-size:14px;font-weight:600;color:var(--text)}
+.group-theme{font-size:11.5px;color:var(--muted);margin-top:1px}
+.group-badges{display:flex;gap:.4rem;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+
+/* ── INITIATIVE PROGRESS ── */
+.initiative-progress{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:1rem;
+  background:#fff;border:1px solid var(--border);
+  border-radius:10px;padding:.65rem 1rem;
+}
+.ip-label{font-size:12px;color:var(--muted);min-width:110px}
+.ip-bar-bg{flex:1;height:7px;background:var(--slate);border-radius:99px;overflow:hidden}
+.ip-bar-fill{height:7px;border-radius:99px;transition:width 1s ease}
+.ip-pct{font-size:13px;font-weight:600;color:var(--text);min-width:36px;text-align:right}
+
+/* ── CARD ── */
+.cards{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem}
+.card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:12px;padding:1.1rem 1.25rem;
+  transition:box-shadow .18s,transform .18s;
+  animation:fadeUp .4s ease both;
+}
+.card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.08);transform:translateY(-1px)}
+.card-top{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.75rem}
+.card-icon{
+  width:36px;height:36px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;margin-top:1px;
+}
+.card-right{flex:1;min-width:0}
+.card-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:.3rem;line-height:1.35}
+.card-desc{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* ── CARD PROGRESS BAR ── */
+.card-progress{margin:.85rem 0 .75rem}
+.cp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.cp-label{font-size:11px;color:var(--muted);font-weight:500}
+.cp-pct{font-size:12px;font-weight:600;color:var(--text)}
+.cp-bar-bg{height:6px;background:var(--slate);border-radius:99px;overflow:hidden}
+.cp-bar-fill{height:6px;border-radius:99px;transition:width 1.2s ease}
+.cp-stage{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5}
+.stage-label{font-weight:600;color:var(--text)}
+.stage-name{font-style:italic;color:#94a3b8}
+.stage-with{color:#94a3b8;font-style:italic}
+
+.card-footer{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding-top:.75rem;border-top:1px solid var(--border)}
+.owner-label{font-size:11px;color:var(--muted);margin-left:auto}
+.owner-pill{background:#f1f5f9;border-radius:5px;padding:2px 8px;font-size:11px;color:var(--muted)}
+
+/* ── BADGES ── */
+.badge{font-size:10.5px;font-weight:500;padding:3px 11px;border-radius:20px;white-space:nowrap}
+.b-short{background:var(--teal-lt);color:#0f766e}
+.b-mid{background:var(--amber-lt);color:var(--amber)}
+.b-long{background:var(--purple-lt);color:var(--purple)}
+.b-site{background:var(--pink-lt);color:var(--pink)}
+.b-ent{background:var(--blue-lt);color:var(--blue)}
+.b-planned{background:#f1f5f9;color:var(--muted);border:1px solid var(--border)}
+.b-inprog{background:#dbeafe;color:#1d4ed8}
+.b-indev{background:#fef9c3;color:#854d0e}
+.b-complete{background:var(--green-lt);color:var(--green)}
+.b-hold{background:#fee2e2;color:#991b1b}
+
+/* ── FOOTER ── */
+.page-footer{
+  text-align:center;font-size:12px;color:var(--muted);
+  padding:2rem 0 1rem;border-top:1px solid var(--border);
+  max-width:860px;margin:0 auto;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+[data-hidden]{display:none!important}
+
+@media(max-width:600px){
+  .hero{padding:2rem 1.25rem 1.75rem}
+  .hero-title{font-size:26px}
+  .controls{padding:.75rem 1.25rem}
+  .content{padding:1.25rem 1.25rem 3rem}
+  .group-badges{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">2025 Survey Results</p>
+    <h1 class="hero-title">Employee Engagement Survey<br>Action Plan</h1>
+    <p class="hero-sub">Every commitment we've made to you — tracked in one place.<br>Updated on the last weekday before the 15th and last weekday before the end of each month.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-n">16</div><div class="stat-l">Total actions</div></div>
+      <div class="stat"><div class="stat-n">8</div><div class="stat-l">Initiatives</div></div>
+      <div class="stat"><div class="stat-n">5</div><div class="stat-l">Enterprise-wide</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Site-specific</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FILTERS ══ -->
+<div class="controls">
+  <span class="filter-label">Show:</span>
+  <button class="filter-btn active" onclick="filter('all',this)">All</button>
+  <button class="filter-btn" onclick="filter('short',this)">Short-term</button>
+  <button class="filter-btn" onclick="filter('mid',this)">Mid-term</button>
+  <button class="filter-btn" onclick="filter('long',this)">Long-term</button>
+  <button class="filter-btn" onclick="filter('site',this)">All Site-Specific</button>
+  <button class="filter-btn" onclick="filter('nj',this)">NJ – Livingston</button>
+  <button class="filter-btn" onclick="filter('tx',this)">TX – Point Comfort</button>
+  <button class="filter-btn" onclick="filter('la',this)">LA – Baton Rouge</button>
+</div>
+
+<!-- ══ CONTENT ══ -->
+<div class="content">
+
+  <!-- ── GROUP 1 ── -->
+  <div class="group" data-scope="short">
+    <div class="group-header">
+      <div class="group-num">1</div>
+      <div class="group-info">
+        <div class="group-title">Execution Discipline & Follow-Through Visibility</div>
+        <div class="group-theme">Action · Service & Quality Focus</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-ent">Enterprise</span>
+        <span class="badge b-short">Short-term · 1–4 mo</span>
+      </div>
+    </div>
+
+    <!-- INITIATIVE OVERALL PROGRESS — update the width % and number below -->
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:50%;background:#0d9488"></div>
+      </div>
+      <span class="ip-pct">50%</span>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#e0f2fe">📊</div>
+          <div class="card-right">
+            <div class="card-title">Deploy Enterprise Action Tracker</div>
+            <div class="card-desc">The Voice Team will lead this in partnership with HR — launching a shared, accessible dashboard listing every survey-driven commitment, current status, and target completion date, updated monthly and linked in the Monthly Newsletter.</div>
+          </div>
+        </div>
+        <!-- ACTION PROGRESS — update width % and number -->
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">60%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:60%;background:#0d9488"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-inprog">🔄 In Progress</span>
+          <span class="owner-label">Owner: <span class="owner-pill">Voice Team, HR</span></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#dcfce7">📢</div>
+          <div class="card-right">
+            <div class="card-title">Standardize 'You Said / We Did' Communication Template</div>
+            <div class="card-desc">After each survey cycle or listening session, publish a structured update — enterprise-wide and per site — naming the top themes heard and the exact actions taken in response. Delivered through the HR podcast and site town hall updates so the loop is always visibly closed.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">40%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:40%;background:#0d9488"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-inprog">🔄 In Progress</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Senior Leadership</span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── GROUP 2 ── -->
+  <div class="group" data-scope="short">
+    <div class="group-header">
+      <div class="group-num">2</div>
+      <div class="group-info">
+        <div class="group-title">Recognition Consistency & Leadership Accountability</div>
+        <div class="group-theme">Feedback & Recognition</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-ent">Enterprise</span>
+        <span class="badge b-short">Short-term · 1–4 mo</span>
+      </div>
+    </div>
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:15%;background:#d97706"></div>
+      </div>
+      <span class="ip-pct">15%</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fef3c7">🏆</div>
+          <div class="card-right">
+            <div class="card-title">Launch Recognition Platform — Standardize Cadence & Train Managers</div>
+            <div class="card-desc">Building on the Recognition and Spot Award Program enterprise-wide — enabling manager-issued recognition points, peer-to-peer acknowledgments, and reward redemption. Managers receive annual points allocations based on headcount and are trained at rollout on timely, specific, values-aligned recognition.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">20%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:20%;background:#d97706"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Management</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fef3c7">✨</div>
+          <div class="card-right">
+            <div class="card-title">Activate Site-Wide Recognition Visibility on Vendor Platform & Intranet</div>
+            <div class="card-desc">Add a quarterly recognition spotlight to the company intranet highlighting 2–3 employees or teams for specific, results-tied contributions.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">10%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:10%;background:#d97706"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Management, Communication</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GROUP 3 ── -->
+  <div class="group" data-scope="short">
+    <div class="group-header">
+      <div class="group-num">3</div>
+      <div class="group-info">
+        <div class="group-title">Enterprise Goal & Decision Transparency</div>
+        <div class="group-theme">Collaboration & Communication · Leadership</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-ent">Enterprise</span>
+        <span class="badge b-short">Short-term · 1–4 mo</span>
+      </div>
+    </div>
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:10%;background:#7c3aed"></div>
+      </div>
+      <span class="ip-pct">10%</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#ede9fe">📋</div>
+          <div class="card-right">
+            <div class="card-title">Communicate All Policy Changes With a Plain-Language Summary of Impact</div>
+            <div class="card-desc">Any policy or procedure change will be communicated to all relevant employees with a structured summary — covering what changed, why, the effective date, and a clear comparison of old vs. new — ensuring everyone hears about changes directly and understands what they mean in practice.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">10%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:10%;background:#7c3aed"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Corporate Comms, M/C</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#ede9fe">🎙️</div>
+          <div class="card-right">
+            <div class="card-title">Launch Quarterly Leadership Update — Direct From Senior Leaders to All Employees</div>
+            <div class="card-desc">Senior leadership delivers a brief, plain-language quarterly update to all employees — covering company priorities, key decisions made and why, and what's coming next — through a consistent channel such as a town hall, intranet post, or video message.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">10%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:10%;background:#7c3aed"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Senior Leadership, Comms</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GROUP 4 ── -->
+  <div class="group" data-scope="mid">
+    <div class="group-header">
+      <div class="group-num">4</div>
+      <div class="group-info">
+        <div class="group-title">Structured Leadership Development Pipeline</div>
+        <div class="group-theme">Leadership · Learning & Development</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-ent">Enterprise</span>
+        <span class="badge b-mid">Mid-term · 4–8 mo</span>
+      </div>
+    </div>
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:25%;background:#d97706"></div>
+      </div>
+      <span class="ip-pct">25%</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#dcfce7">🎓</div>
+          <div class="card-right">
+            <div class="card-title">Launch 12-Week Enterprise Leadership Development Program</div>
+            <div class="card-desc">Roll out the 12-week Manager Training Program through Dayforce Learning in a blended format: e-learning modules supported by instructor-led components for role play, coaching practice, and scenario-based exercises. Designed for newly promoted managers, succession candidates, and managers needing stronger people-leadership fundamentals.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">35%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:35%;background:#d97706"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-indev">🔨 In Development</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Leaders, Managers</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#dcfce7">💰</div>
+          <div class="card-right">
+            <div class="card-title">Introduce Monetary Incentives for Continued Education & Certifications</div>
+            <div class="card-desc">Establish clear, published rewards for employees who complete certifications, degrees, or courses that benefit the company — including salary adjustments, stipends, or one-time bonuses — with transparent criteria by role family and an automated process to apply the reward upon proof of completion.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">15%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:15%;background:#d97706"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR & Total Comp</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GROUP 5 ── -->
+  <div class="group" data-scope="long">
+    <div class="group-header">
+      <div class="group-num">5</div>
+      <div class="group-info">
+        <div class="group-title">Enterprise Innovation & Confidence Roadmap</div>
+        <div class="group-theme">Innovation · Company Confidence</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-ent">Enterprise</span>
+        <span class="badge b-long">Long-term · 8–12 mo</span>
+      </div>
+    </div>
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:5%;background:#7c3aed"></div>
+      </div>
+      <span class="ip-pct">5%</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">💡</div>
+          <div class="card-right">
+            <div class="card-title">Launch Enterprise-Wide Innovation Email Inbox</div>
+            <div class="card-desc">A dedicated, managed inbox where any employee can submit process improvement, operational, or culture ideas — with a guaranteed acknowledgment within 2 weeks, a substantive response within 30 days, and quarterly updates published enterprise-wide on what was submitted, acted on, and why.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">5%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:5%;background:#7c3aed"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, M/C, Voice Teams</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">🗂️</div>
+          <div class="card-right">
+            <div class="card-title">Align Succession Planning to the Annual Review Cycle</div>
+            <div class="card-desc">Integrate a structured succession conversation into every annual review process for roles at manager level and above — with documented development plans, identified successors, and a clear readiness timeline — ensuring the company develops leadership from within and reduces dependency on external hiring.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">5%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:5%;background:#7c3aed"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Senior Leadership</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SITE DIVIDER: NJ ── -->
+  <div class="site-divider" data-scope="nj site">
+    <div class="site-divider-line"></div>
+    <span class="site-divider-label site-nj">📍 NJ — Livingston</span>
+    <div class="site-divider-line"></div>
+  </div>
+
+  <!-- ── GROUP 6 ── -->
+  <div class="group" data-scope="nj site">
+    <div class="group-header">
+      <div class="group-num">6</div>
+      <div class="group-info">
+        <div class="group-title">Leadership Visibility, Innovation & Employee Experience</div>
+        <div class="group-theme">Leadership · Innovation · Compensation & Rewards</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-site">NJ – Livingston</span>
+        <span class="badge b-short">Site-Specific · 1–6 mo</span>
+      </div>
+    </div>
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:10%;background:#be185d"></div>
+      </div>
+      <span class="ip-pct">10%</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">🎧</div>
+          <div class="card-right">
+            <div class="card-title">Monthly Leadership Listening Sessions — Including HR Podcast Format</div>
+            <div class="card-desc">Senior leaders rotate through Livingston monthly for open, no-agenda conversations with NJ employees, supplemented by a brief monthly HR podcast-style update where site leadership addresses the top questions raised and shares what's actively in progress.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">15%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:15%;background:#be185d"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">Leadership, HR</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">🔄</div>
+          <div class="card-right">
+            <div class="card-title">Pilot Rotational Program</div>
+            <div class="card-desc">Launch a 6-month job rotation pilot with 2 NJ employees across divisions to broaden cross-functional exposure, reduce silos, and support employee development by creating opportunities for expanded experience beyond their current assignment or division.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">5%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:5%;background:#be185d"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">HR, Leaders, Managers</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SITE DIVIDER: TX ── -->
+  <div class="site-divider" data-scope="tx site">
+    <div class="site-divider-line"></div>
+    <span class="site-divider-label site-tx">📍 TX — Point Comfort</span>
+    <div class="site-divider-line"></div>
+  </div>
+
+  <!-- ── GROUP 7 ── -->
+  <div class="group" data-scope="tx site">
+    <div class="group-header">
+      <div class="group-num">7</div>
+      <div class="group-info">
+        <div class="group-title">Leadership Accountability, Performance Clarity & Pay Transparency</div>
+        <div class="group-theme">Leadership · Compensation & Rewards · Feedback & Recognition</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-site">TX – Point Comfort</span>
+        <span class="badge b-short">Site-Specific · 1–6 mo</span>
+      </div>
+    </div>
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:10%;background:#be185d"></div>
+      </div>
+      <span class="ip-pct">10%</span>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">📌</div>
+          <div class="card-right">
+            <div class="card-title">Publish TX Leadership Expectations Framework & In-Person Training</div>
+            <div class="card-desc">Corporate to publish a Leadership Expectations framework covering communication, accountability, respect, follow-through, and coaching. Site HR Team will complete in-person training and follow through. Language aligns with emerging enterprise leadership standards under senior leadership review.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">10%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:10%;background:#be185d"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">Corp. HR, Site HR, L&D</span></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">💲</div>
+          <div class="card-right">
+            <div class="card-title">Publish Texas Pay FAQ, Clarifying Process and Escalation Paths</div>
+            <div class="card-desc">The published FAQ will appear on the TX HR Intranet tutorial page. Success will be measured by a reduction in repeat pay questions regarding new salaries not related to payroll processing.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">10%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:10%;background:#be185d"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">Site HR</span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SITE DIVIDER: LA ── -->
+  <div class="site-divider" data-scope="la site">
+    <div class="site-divider-line"></div>
+    <span class="site-divider-label site-la">📍 LA — Baton Rouge</span>
+    <div class="site-divider-line"></div>
+  </div>
+
+  <!-- ── GROUP 8 ── -->
+  <div class="group" data-scope="la site">
+    <div class="group-header">
+      <div class="group-num">8</div>
+      <div class="group-info">
+        <div class="group-title">Manager Enablement & Accountability Reinforcement</div>
+        <div class="group-theme">Enablement · Company Confidence · Leadership · Teamwork & Ownership</div>
+      </div>
+      <div class="group-badges">
+        <span class="badge b-site">LA – Baton Rouge</span>
+        <span class="badge b-short">Site-Specific · 1–6 mo</span>
+      </div>
+    </div>
+    <div class="initiative-progress">
+      <span class="ip-label">Initiative progress</span>
+      <div class="ip-bar-bg">
+        <div class="ip-bar-fill" style="width:10%;background:#be185d"></div>
+      </div>
+      <span class="ip-pct">10%</span>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">🏛️</div>
+          <div class="card-right">
+            <div class="card-title">Hold Site-Wide Town Halls to Review Survey Results & Introduce Peer Reviews for Management</div>
+            <div class="card-desc">Commit to quarterly town halls and regularly scheduled safety meetings at Baton Rouge where senior leaders present survey action progress, reinforce safety standards, and take live questions. Increase upper management visibility on the floor between town halls and introduce a structured peer review component in manager evaluations — giving employees a formal voice in how their managers are assessed.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">10%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:10%;background:#be185d"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">Site Leadership, Site HR</span></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon" style="background:#fce7f3">⚖️</div>
+          <div class="card-right">
+            <div class="card-title">Enforce Personnel Management & Conflict Resolution Training — Standardize Corrective Action</div>
+            <div class="card-desc">Require all LA people managers to complete mandatory personnel management and conflict resolution training covering performance conversations, escalation protocols, and respectful communication. Simultaneously audit and standardize corrective action practices across all Baton Rouge teams with a single, consistently applied escalation-of-discipline process.</div>
+          </div>
+        </div>
+        <div class="card-progress">
+          <div class="cp-header"><span class="cp-label">Progress</span><span class="cp-pct">10%</span></div>
+          <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:10%;background:#be185d"></div></div>
+          <div class="cp-stage"><span class="stage-label">Current stage:</span> <span class="stage-name">[ Stage name ]</span></div>
+          <div class="cp-stage"><span class="stage-label">Currently with:</span> <span class="stage-with">[ Name / team — expected next step or date ]</span></div>
+        </div>
+        <div class="card-footer">
+          <span class="badge b-planned">⏳ Planned</span>
+          <span class="owner-label">Owner: <span class="owner-pill">Site Leadership, Site HR</span></span>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="page-footer">
+    Last updated: May 2026 &nbsp;·&nbsp; Updated on the last weekday before the 15th and before month-end &nbsp;·&nbsp; Questions? Contact HR
+  </div>
+
+</div>
+
+<script>
+  function filter(scope, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('[data-scope]').forEach(el => {
+      const scopes = el.dataset.scope.split(' ');
+      const show = scope === 'all' || scopes.includes(scope);
+      el.toggleAttribute('data-hidden', !show);
+    });
+  }
+
+  // Animate bars on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.ip-bar-fill, .cp-bar-fill').forEach(bar => {
+      const w = bar.style.width;
+      bar.style.width = '0';
+      setTimeout(() => bar.style.width = w, 100);
+    });
+  });
+</script>
+</body>
+</html>
