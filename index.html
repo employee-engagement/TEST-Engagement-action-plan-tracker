@@ -83,6 +83,68 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 .stat-n{font-size:27px;font-weight:600;color:#fff;line-height:1}
 .stat-l{font-size:12px;color:#94a3b8;margin-top:3px}
 
+/* ── YEAR-ONE SNAPSHOT ── */
+.snapshot-wrap{max-width:1100px;margin:-2rem auto 0;padding:0 2.5rem;position:relative;z-index:2}
+.snapshot-card{
+  background:#fff;border-radius:16px;
+  box-shadow:0 14px 34px rgba(15,30,53,0.16);
+  border:1px solid var(--border);border-top:4px solid var(--teal);
+  padding:1.85rem 2.1rem;animation:fadeUp .55s ease both;
+}
+.snapshot-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal);background:var(--teal-lt);padding:5px 13px;border-radius:20px;margin-bottom:.85rem;
+}
+.snapshot-title{font-family:'Instrument Serif',serif;font-size:29px;color:var(--navy);margin-bottom:.65rem;font-weight:700;letter-spacing:.01em}
+.snapshot-body{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:1.2rem;max-width:840px}
+.snapshot-highlights{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.snapshot-chip{
+  font-size:13.5px;font-weight:600;color:var(--navy);
+  background:var(--slate);border:1px solid var(--border);
+  padding:.5rem .95rem;border-radius:10px;white-space:nowrap;
+}
+
+/* ── SNAPSHOT TIMELINE ── */
+.snapshot-timeline{position:relative;display:flex;justify-content:space-between;margin:1.6rem 0 1.7rem;padding:0 4px}
+.snapshot-tl-line{position:absolute;top:6px;left:7%;right:7%;height:2px;background:var(--border);z-index:0}
+.snapshot-tl-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;min-width:0;padding:0 4px}
+.snapshot-tl-dot{width:13px;height:13px;border-radius:50%;background:#fff;border:2.5px solid var(--border);margin-bottom:9px}
+.snapshot-tl-step.done .snapshot-tl-dot{background:var(--teal);border-color:var(--teal)}
+.snapshot-tl-step.now .snapshot-tl-dot{background:var(--navy);border-color:var(--navy);width:16px;height:16px;margin-bottom:7.5px;box-shadow:0 0 0 4px rgba(15,30,53,.14)}
+.snapshot-tl-step.upcoming .snapshot-tl-dot{background:#fff;border-color:var(--muted);border-style:dashed}
+.snapshot-tl-date{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.snapshot-tl-step.now .snapshot-tl-date{color:var(--navy)}
+.snapshot-tl-step.upcoming .snapshot-tl-date{color:#0f766e}
+.snapshot-tl-label{font-size:12.5px;font-weight:600;color:var(--text);margin-top:2px;line-height:1.3;max-width:112px}
+.snapshot-tl-step.upcoming .snapshot-tl-label{color:#0f766e}
+@media(max-width:600px){
+  .snapshot-tl-label{font-size:10.5px;max-width:80px}
+  .snapshot-tl-date{font-size:9.5px}
+}
+.snapshot-cta{
+  background:linear-gradient(135deg,#0f1e35,#1a2f4a);
+  border-radius:12px;padding:1.35rem 1.6rem;
+  display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem;
+  position:relative;overflow:hidden;
+}
+.snapshot-cta::after{
+  content:'';position:absolute;top:-40px;right:-30px;width:150px;height:150px;
+  border-radius:50%;background:var(--teal);opacity:0.12;
+}
+.snapshot-cta-text{display:flex;flex-direction:column;gap:2px;position:relative;z-index:1;flex-shrink:0}
+.snapshot-cta-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc}
+.snapshot-cta-title{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;font-weight:700}
+.snapshot-cta-dates{font-size:14.5px;color:#2dd4bf;font-weight:700}
+.snapshot-cta-note{font-size:13.5px;color:#94a3b8;line-height:1.65;max-width:620px;position:relative;z-index:1}
+
+@media(max-width:600px){
+  .snapshot-wrap{padding:0 1.25rem;margin-top:-1.5rem}
+  .snapshot-card{padding:1.35rem 1.35rem}
+  .snapshot-title{font-size:23px}
+  .snapshot-cta{flex-direction:column;align-items:flex-start}
+}
+
 /* ── CONTROLS ── */
 .controls{
   background:#fff;border-bottom:1px solid var(--border);
@@ -102,6 +164,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 .filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 .legend-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
 .legend-item{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:4px;white-space:nowrap}
+
+/* ── STICKY SURVEY REMINDER ── */
+.sticky-survey-banner{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;
+  background:var(--teal-lt);border:1px solid #99e6df;
+  border-radius:8px;padding:.5rem 1rem;
+  font-size:13px;color:#0f766e;cursor:pointer;
+  transition:background .15s;text-align:center;
+}
+.sticky-survey-banner:hover{background:#d1f2ee}
+.sticky-survey-banner strong{color:#0f766e;font-weight:700}
+.sticky-survey-link{font-weight:700;text-decoration:underline;white-space:nowrap;margin-left:2px}
+@media(max-width:600px){.sticky-survey-banner{font-size:12px;padding:.5rem .75rem}}
 
 /* ── CONTENT ── */
 .content{max-width:1100px;margin:0 auto;padding:2rem 2.5rem 4rem}
@@ -189,6 +264,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 .ip-bar-bg{flex:1;height:7px;background:var(--slate);border-radius:99px;overflow:hidden}
 .ip-bar-fill{height:7px;border-radius:99px;transition:width 1s ease}
 .ip-pct{font-size:15px;font-weight:600;color:var(--text);min-width:36px;text-align:right}
+.ip-status-icon{font-size:14px;margin-right:2px}
 
 /* ── CARD ── */
 .cards{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem}
@@ -310,6 +386,63 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
   </div>
 </div>
 
+<!-- ══ YEAR-ONE SNAPSHOT ══ -->
+<div class="snapshot-wrap" id="snapshot">
+  <div class="snapshot-card">
+    <span class="snapshot-badge">🎙️ One Year In</span>
+    <h2 class="snapshot-title">From Listening to Doing</h2>
+    <p class="snapshot-body">In September 2025, employees across Livingston, Point Comfort, and Baton Rouge told us — honestly — what was working and what wasn't. We didn't want that feedback to just sit in a report: results went back out to everyone within three months, and by March 2026 we'd turned them into the 8-part Action Plan on this page, built with Voice Teams at every site rather than handed down from HR alone.</p>
+
+    <div class="snapshot-timeline">
+      <div class="snapshot-tl-line"></div>
+      <div class="snapshot-tl-step done">
+        <span class="snapshot-tl-dot"></span>
+        <span class="snapshot-tl-date">Sep 2025</span>
+        <span class="snapshot-tl-label">Survey Conducted</span>
+      </div>
+      <div class="snapshot-tl-step done">
+        <span class="snapshot-tl-dot"></span>
+        <span class="snapshot-tl-date">Dec 2025</span>
+        <span class="snapshot-tl-label">Results Shared</span>
+      </div>
+      <div class="snapshot-tl-step done">
+        <span class="snapshot-tl-dot"></span>
+        <span class="snapshot-tl-date">Mar 2026</span>
+        <span class="snapshot-tl-label">Action Plan Released</span>
+      </div>
+      <div class="snapshot-tl-step now">
+        <span class="snapshot-tl-dot"></span>
+        <span class="snapshot-tl-date">Sep 2026</span>
+        <span class="snapshot-tl-label">You Are Here</span>
+      </div>
+      <div class="snapshot-tl-step upcoming">
+        <span class="snapshot-tl-dot"></span>
+        <span class="snapshot-tl-date">Oct 2026</span>
+        <span class="snapshot-tl-label">2027 Survey Opens</span>
+      </div>
+    </div>
+
+    <p class="snapshot-body">Since then, that plan has taken real shape: a Recognition &amp; Spot Award platform live enterprise-wide, our first Leadership Program cohort graduated, and this tracker itself — one of the very first commitments we made — publicly tracking every promise instead of letting it quietly disappear. Five of sixteen commitments are fully delivered, eight more are actively in motion, and the rest are being built, not abandoned.</p>
+
+    <div class="snapshot-highlights">
+      <div class="snapshot-chip">📊 5 of 16 Initiatives — Complete</div>
+      <div class="snapshot-chip">🏆 Recognition Platform — Live</div>
+      <div class="snapshot-chip">🎓 1st Leadership Cohort — Graduated</div>
+      <div class="snapshot-chip">🗓️ Quarterly Leadership Updates — Underway</div>
+    </div>
+    <div class="snapshot-cta">
+      <div class="snapshot-cta-text">
+        <span class="snapshot-cta-eyebrow">Coming Up · Our 2nd Year Running This Survey</span>
+        <span class="snapshot-cta-title">2027 Employee Engagement Survey</span>
+        <span class="snapshot-cta-dates">October 5 – October 30</span>
+      </div>
+      <p class="snapshot-cta-note">This is what makes right now the moment to open the next chapter: our first true year-over-year comparison — a chance to see whether this year of action moved what mattered most, and for you to shape what comes after this plan.</p>
+      <p class="snapshot-cta-note" style="margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(255,255,255,0.12);">📌 <strong style="color:#e2e8f0;">To be clear:</strong> opening the 2027 survey doesn't pause the work above. Every initiative on this tracker keeps moving on its own timeline — the new survey runs alongside it, not instead of it.</p>
+      <p class="snapshot-cta-note" style="margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(255,255,255,0.12);">🔒 <strong style="color:#e2e8f0;">Your responses stay anonymous</strong> — same as always, results are only ever reported in aggregate and are never tied back to you individually.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ══ VOICE TEAM BANNER ══ -->
 <div style="background:linear-gradient(135deg,#6366f1,#3b82f6);padding:.85rem 2.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
   <span style="font-size:20px;">📡</span>
@@ -322,6 +455,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 
 <!-- ══ FILTERS ══ -->
 <div class="controls">
+  <div class="sticky-survey-banner" onclick="document.getElementById('snapshot').scrollIntoView({behavior:'smooth'})">
+    📌 <strong>2027 Employee Engagement Survey</strong> — October 5–30 <span class="sticky-survey-link">Jump to details ↑</span>
+  </div>
   <div class="controls-row">
     <span class="filter-label">Filter:</span>
     <button class="filter-btn active" onclick="filter('all',this)">All</button>
@@ -367,7 +503,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:80%;background:#0d9488"></div></div>
-      <span class="ip-pct">80%</span>
+      <span class="ip-status-icon" title="In Progress">⏳</span><span class="ip-pct">80%</span>
     </div>
     <div class="cards">
       <div class="card">
@@ -443,7 +579,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:93%;background:#d97706"></div></div>
-      <span class="ip-pct">93%</span>
+      <span class="ip-status-icon" title="In Progress">⏳</span><span class="ip-pct">93%</span>
     </div>
     <div class="cards">
       <div class="card">
@@ -524,7 +660,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:100%;background:#7c3aed"></div></div>
-      <span class="ip-pct">100%</span>
+      <span class="ip-status-icon" title="Complete">✅</span><span class="ip-pct">100%</span>
     </div>
     <div class="cards">
       <div class="card">
@@ -610,7 +746,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:65%;background:#0369a1"></div></div>
-      <span class="ip-pct">65%</span>
+      <span class="ip-status-icon" title="In Progress">⏳</span><span class="ip-pct">65%</span>
     </div>
     <div class="cards">
       <div class="card">
@@ -687,7 +823,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:18%;background:#be185d"></div></div>
-      <span class="ip-pct">18%</span>
+      <span class="ip-status-icon" title="In Progress">⏳</span><span class="ip-pct">18%</span>
     </div>
     <div class="cards">
       <div class="card">
@@ -782,7 +918,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:20%;background:#0891b2"></div></div>
-      <span class="ip-pct">20%</span>
+      <span class="ip-status-icon" title="In Progress">⏳</span><span class="ip-pct">20%</span>
     </div>
     <div class="cards">
       <div class="card">
@@ -865,7 +1001,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:66%;background:#ca8a04"></div></div>
-      <span class="ip-pct">66%</span>
+      <span class="ip-status-icon" title="In Progress">⏳</span><span class="ip-pct">66%</span>
     </div>
     <div class="cards">
       <div class="card">
@@ -958,7 +1094,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
     <div class="initiative-progress">
       <span class="ip-label">Initiative progress</span>
       <div class="ip-bar-bg"><div class="ip-bar-fill" style="width:38%;background:#dc2626"></div></div>
-      <span class="ip-pct">38%</span>
+      <span class="ip-status-icon" title="In Progress">⏳</span><span class="ip-pct">38%</span>
     </div>
     <div class="cards">
       <div class="card">
