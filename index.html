@@ -162,6 +162,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
 .anon-inline-icon{font-size:19px;line-height:1;flex-shrink:0}
 .anon-inline-title{font-size:14px;font-weight:700;color:#5eead4;margin-bottom:2px}
 .anon-inline-sub{font-size:12.5px;color:#99f6e4;opacity:.95;line-height:1.5}
+
+/* ── BENCHMARK / GOAL (inline within survey CTA) ── */
+.goal-inline{
+  display:flex;align-items:flex-start;gap:.7rem;
+  background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.35);
+  border-radius:10px;padding:.85rem 1rem;margin-top:.9rem;position:relative;z-index:1;
+}
+.goal-inline-icon{font-size:19px;line-height:1;flex-shrink:0}
+.goal-inline-title{font-size:14px;font-weight:700;color:#fcd34d;margin-bottom:2px}
+.goal-inline-sub{font-size:12.5px;color:#fde68a;opacity:.95;line-height:1.5}
 .snapshot-cta-note{font-size:13.5px;color:#94a3b8;line-height:1.65;max-width:620px;position:relative;z-index:1}
 
 @media(max-width:600px){
@@ -467,6 +477,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--slate);color:var(--text);
       </div>
       <p class="snapshot-cta-note">This is what makes right now the moment to open the next chapter: our first true year-over-year comparison, a chance to see whether this year of action moved what mattered most, and for you to shape what comes after this plan.</p>
       <p class="snapshot-cta-note" style="margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(255,255,255,0.12);">📌 <strong style="color:#e2e8f0;">Quick note:</strong> opening the 2027 survey doesn't pause the work above. Every initiative on this tracker keeps moving on its own timeline. The new survey runs alongside it, not instead of it.</p>
+      <div class="goal-inline">
+        <span class="goal-inline-icon">🎯</span>
+        <div>
+          <div class="goal-inline-title">2025 is our benchmark.</div>
+          <div class="goal-inline-sub">In 2026, the goal is simple: higher participation and higher engagement, at every site, measured against where we started. Progress over perfection, one item at a time.</div>
+        </div>
+      </div>
       <div class="anon-inline">
         <span class="anon-inline-icon">🔒</span>
         <div>
